@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274633B1249C8751001EF31E /* customTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274633B0249C8751001EF31E /* customTableCell.swift */; };
 		27E1D40324991EE900A4C630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1D40224991EE900A4C630 /* AppDelegate.swift */; };
 		27E1D40524991EE900A4C630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1D40424991EE900A4C630 /* SceneDelegate.swift */; };
 		27E1D40724991EE900A4C630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E1D40624991EE900A4C630 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		274633B0249C8751001EF31E /* customTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableCell.swift; sourceTree = "<group>"; };
 		27E1D3FF24991EE900A4C630 /* ClimbingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ClimbingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E1D40224991EE900A4C630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27E1D40424991EE900A4C630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				27E1D41E2499C44100A4C630 /* menteeFirstVC.swift */,
 				27E1D4202499CE1B00A4C630 /* mentorFirstVC.swift */,
 				27E1D4222499EAFA00A4C630 /* mainHomeVC.swift */,
+				274633B0249C8751001EF31E /* customTableCell.swift */,
 				27E1D40824991EE900A4C630 /* Main.storyboard */,
 				27E1D40B24991EEB00A4C630 /* Assets.xcassets */,
 				27E1D40D24991EEB00A4C630 /* LaunchScreen.storyboard */,
@@ -176,6 +179,7 @@
 				27E1D40724991EE900A4C630 /* ViewController.swift in Sources */,
 				27E1D40324991EE900A4C630 /* AppDelegate.swift in Sources */,
 				27E1D41F2499C44100A4C630 /* menteeFirstVC.swift in Sources */,
+				274633B1249C8751001EF31E /* customTableCell.swift in Sources */,
 				27E1D40524991EE900A4C630 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
