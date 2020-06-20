@@ -7,9 +7,11 @@
 //
 
 import UIKit
+
+var menteeName = [String]()
+var menteeExCount = [Int]()
+
 class MenteeFirstVC: UIViewController {
-    var menteeName: String = ""
-    var menteeCnt: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,11 +23,8 @@ class MenteeFirstVC: UIViewController {
     @IBOutlet weak var menteeCntTf: UITextField!
     
     @IBAction func menteeInfoSubmit(_ sender: Any) {
-        self.menteeName = menteeNameTf.text!
-        self.menteeCnt = Int(menteeCntTf.text!)!
-        
-        print(self.menteeName)
-        print(self.menteeCnt)
+        menteeName.append(menteeNameTf.text!)
+        menteeExCount.append(Int(menteeCntTf.text!)!)
         
         let newVC = self.storyboard?.instantiateViewController(identifier: "MainPageVC")
                newVC?.modalPresentationStyle = .fullScreen

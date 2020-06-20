@@ -9,9 +9,10 @@
 import UIKit
 
 class MakePartyVC: UIViewController {
-    let myPickerData = [String](arrayLiteral: "강남 클라이밍파크", "비클라이밍", "은평인공암벽장", "도곡 클라이밍장", "클라이밍파크", "클라이밍룸")
+    let locationPickerData = [String](arrayLiteral: "", "강남 클라이밍파크", "비클라이밍", "은평인공암벽장", "도곡 클라이밍장", "클라이밍파크", "클라이밍룸")
     
     @IBOutlet weak var partyTitleTf: UITextField!
+    @IBOutlet weak var partyTargetTf: UITextField!
     @IBOutlet weak var partyDateTf: UITextField!
     @IBOutlet weak var partyLocationTf: UITextField!
     @IBOutlet weak var partyMaxTf: UITextField!
@@ -19,11 +20,52 @@ class MakePartyVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.partyDateTf.setInputViewDatePicker(target: self, selector: #selector(tapDone))
-        let thePicker = UIPickerView()
-        thePicker.delegate = self
-        partyLocationTf.inputView = thePicker
+        
+        partyLocationTf.tintColor = .clear
+        createPickerView()
+        dismissPickerView()
     }
+    
+    @IBAction func partyAddDoneBtn(_ sender: Any) {
+        titles.append(partyTitleTf.text!)
+        hosts.append("홍길동")
+        targets.append(partyTargetTf.text!)
+        dates.append(partyDateTf.text!)
+        locations.append(partyLocationTf.text!)
+        maxPeople.append(Int(partyMaxTf.text!)!)
+        currentPeople.append(0)
+        descs.append(partyDescTv.text!)
+        
+        partyTitleTf.text = ""
+        partyTargetTf.text = ""
+        partyDateTf.text = ""
+        partyLocationTf.text = ""
+        partyMaxTf.text = ""
+        partyDescTv.text = ""
+        
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func createPickerView() {
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        partyLocationTf.inputView = pickerView
+    }
+    
+    func dismissPickerView() {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let button = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(self.action))
+        toolBar.setItems([button], animated: true)
+        toolBar.isUserInteractionEnabled = true
+        partyLocationTf.inputAccessoryView = toolBar
+    }
+    
+    @objc func action() {
+        self.partyLocationTf.resignFirstResponder()
+       }
     
     @objc func tapDone() {
         if let datePicker = self.partyDateTf.inputView as? UIDatePicker { // 2-1
@@ -64,15 +106,14 @@ extension MakePartyVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
 
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return myPickerData.count
+        return locationPickerData.count
     }
 
     func pickerView( _ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return myPickerData[row]
+        return locationPickerData[row]
     }
 
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        partyLocationTf.text = myPickerData[row]
+        partyLocationTf.text = locationPickerData[row]
     }
-
 }

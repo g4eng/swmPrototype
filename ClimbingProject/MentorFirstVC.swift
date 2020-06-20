@@ -8,9 +8,10 @@
 
 import UIKit
 
+var mentorName = [String]()
+var mentorLicense = [UIImage]()
+
 class MentorFirstVC: UIViewController {
-    var mentorName: String = ""
-    var mentorLicense: Any = ""
     let picker = UIImagePickerController()
     
     @IBOutlet weak var mentorNameLbl: UILabel!
@@ -56,11 +57,8 @@ class MentorFirstVC: UIViewController {
     }
     
     @IBAction func metorInfoSubmit(_ sender: Any) {
-        self.mentorName = mentorNameTf.text!
-        self.mentorLicense = mentorLicenseImgView.image!
-        
-        print(self.mentorName)
-        print(self.mentorLicense)
+        mentorName.append(mentorNameLbl.text!)
+        mentorLicense.append(mentorLicenseImgView.image!)
         
         //dismiss(animated: true, completion: nil)
         
